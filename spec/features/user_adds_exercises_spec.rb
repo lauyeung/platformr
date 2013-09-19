@@ -26,7 +26,7 @@ feature 'user adds exercises', %Q{
     visit '/exercises'
     click_link 'Add New Exercise'
     click_button 'Submit'
-    expect(page).to have_content("Exercise input invalid (no exercise specified or already created).")
+    expect(page).to have_content("can't be blank")
     expect(Exercise.count).to eql(prev_count)
   end
 
@@ -37,7 +37,7 @@ feature 'user adds exercises', %Q{
     click_link 'Add New Exercise'
     fill_in 'Name', with: 'Clean'
     click_button 'Submit'
-    expect(page).to have_content("Exercise input invalid (no exercise specified or already created).")
+    expect(page).to have_content("already exists")
     expect(Exercise.count).to eql(prev_count)
   end
 

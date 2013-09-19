@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'devise'
 
+gem 'simple_form'
+
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 
 group :development, :test do

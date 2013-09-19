@@ -1,9 +1,9 @@
-
+<h1>Hi Eric</h1>
 <%= form_for(@exercise, :html => { :class => "form-horizontal", :role => "form" } ) do |f| %>
 
   <% if @exercise.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@exercise.errors.count, "error") %> prohibited this user from being saved:</h2>
+      <p><%= pluralize(@exercise.errors.count, "error") %> prohibited this user from being saved:</p>
 
       <ul>
       <% @exercise.errors.full_messages.each do |msg| %>
@@ -15,8 +15,8 @@
 
 
  <div class="form-group">
-    <%= f.label :name, class: 'col-md-2 control-label' %>
-    <div class="col-md-10">
+    <%= f.label :name, class: 'col-md-1 control-label' %>
+    <div class="col-md-11">
       <%= f.text_field :name, class: 'form-control' %>
   </div>
 </div>
@@ -24,7 +24,7 @@
 
 
   <div class="form-group">
-    <div class="col-md-offset-2 col-md-10">
+    <div class="col-md-offset-1 col-md-10">
       <%= f.submit "Submit", class: 'btn btn-default' %>
     </div>
   </div>

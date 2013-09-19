@@ -1,5 +1,6 @@
 Platformr::Application.routes.draw do
-  resources :exercises
+  devise_for :users
+  resources :exercises, :workouts
 
 
   # The priority is based upon order of creation: first created -> highest priority.

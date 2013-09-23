@@ -11,6 +11,8 @@ feature 'user adds exercises', %Q{
 # * I must specify the name of the exercise
 # * I must specify a unique exercise
 
+  let(:user) { FactoryGirl.create(:user) }
+
   scenario 'specifies valid information' do
     prev_count = Exercise.count
     visit '/exercises'

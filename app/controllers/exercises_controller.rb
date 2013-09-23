@@ -1,7 +1,8 @@
 class ExercisesController < ApplicationController
+  before_filter :authenticate_user!
 
   def index
-    @exercises = Exercise.all
+    @exercises = current_user.exercises
   end
 
   def new

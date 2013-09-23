@@ -1,4 +1,4 @@
-<h1>Hi Eric</h1>
+<!--
 <%= form_for(@exercise, :html => { :class => "form-horizontal", :role => "form" } ) do |f| %>
 
   <% if @exercise.errors.any? %>
@@ -28,7 +28,12 @@
       <%= f.submit "Submit", class: 'btn btn-default' %>
     </div>
   </div>
+ -->
 
 
+<% end %>
 
+<%= simple_form_for @exercise do |f| %>
+  <%= f.input :name %>
+  <%= f.button :submit %>
 <% end %>

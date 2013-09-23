@@ -29,6 +29,7 @@ group :development, :test do
   gem 'capybara'
   gem 'pry-rails'
   gem 'launchy'
+  gem 'database_cleaner'
 end
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

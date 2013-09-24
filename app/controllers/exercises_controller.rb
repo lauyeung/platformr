@@ -13,7 +13,7 @@ class ExercisesController < ApplicationController
   end
 
   def create
-    @exercise = Exercise.new(exercise_params)
+    @exercise = current_user.exercises.build(exercise_params)
     if @exercise.save
       flash[:notice] = "Exercise was successfully added!"
       redirect_to '/exercises'

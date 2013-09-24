@@ -23,3 +23,11 @@ body {
 .notice {
   color: green;
 }
+
+.form-horizontal .form-group {
+  margin-left: 0px;
+}
+
+.navbar-collapse .navbar-nav.navbar-right:last-child {
+  margin-right: 0px;
+}

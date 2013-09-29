@@ -8,6 +8,13 @@ body {
   font-family: 'Wallpoet', cursive;
 }
 
+.alert {
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border-radius: 0px;
+}
+
 // * {
 //   font-family: 'Open Sans', sans-serif;
 // }
@@ -15,6 +22,28 @@ body {
 // .btn {
 //   border-radius: 80px;
 // }
+
+
+html,
+body {
+  height: 100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  /* Negative indent footer by it's height */
+  margin: 0 auto -30px;
+}
+
+/* Set the fixed height of the footer here */
+#footer {
+  height: 30px;
+  background-color: #eee;
+  text-align: center;
+}
 
 .form-horizontal .form-group {
   margin-left: 0px;

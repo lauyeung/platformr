@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
+// @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700);
 
 body {
   padding-top: 70px;
@@ -8,21 +8,13 @@ body {
   font-family: 'Wallpoet', cursive;
 }
 
-* {
-  font-family: 'Open Sans', sans-serif;
-}
+// * {
+//   font-family: 'Open Sans', sans-serif;
+// }
 
 // .btn {
 //   border-radius: 80px;
 // }
-
-.alert {
-  color: red;
-}
-
-.notice {
-  color: green;
-}
 
 .form-horizontal .form-group {
   margin-left: 0px;
@@ -31,3 +23,4 @@ body {
 .navbar-collapse .navbar-nav.navbar-right:last-child {
   margin-right: 0px;
 }
+

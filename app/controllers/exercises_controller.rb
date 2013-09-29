@@ -9,16 +9,26 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.new
   end
 
-  def edit
-  end
-
   def create
     @exercise = current_user.exercises.build(exercise_params)
     if @exercise.save
       flash[:notice] = "Exercise was successfully added!"
-      redirect_to '/exercises'
+      redirect_to exercises_path
     else
       render :new
+    end
+  end
+
+  def edit
+    @exercise = Exercise.find(params[:id])
+  end
+
+  def update
+    @exercise = Exercise.find(params[:id])
+    if @exercise.update(exercise_params)
+      redirect_to exercises_path, notice: 'Exercise was successfully updated!'
+    else
+      render action: 'edit'
     end
   end
 

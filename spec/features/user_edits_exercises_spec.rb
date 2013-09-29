@@ -9,4 +9,29 @@ feature 'user adds exercises', %Q{
 # ACCEPTANCE CRITERIA
 # * I want to edit the names of exercises
 
+  let(:user) { FactoryGirl.create(:user) }
+
+  scenario 'update an existing exercise' do
+    exercise = 'Deadlift'
+    exercise2 = 'Deadlift, clean grip'
+    sign_in_as(user)
+    FactoryGirl.create(:exercise, name: exercise, user: user)
+    prev_count = Exercise.count
+    visit exercises_path
+    find(:xpath, "//tr[td[contains(.,#{exercise})]]/td/a", :text => 'Edit').click
+    fill_in 'Exercise name', with: exercise2
+    click_button 'Update Exercise'
+    expect(page).to have_content("Exercise was successfully updated!")
+    expect(Exercise.count).to eql(prev_count)
+  end
+
+
+
+  def sign_in_as(user)
+    visit new_user_session_path
+    fill_in 'Username or email', with: user.email
+    fill_in 'Password', with: user.password
+    click_button 'Sign in'
+  end
+
 end

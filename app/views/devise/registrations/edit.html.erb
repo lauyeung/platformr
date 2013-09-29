@@ -5,6 +5,9 @@
 
   <div class="form-inputs">
     <%= f.input :email, :required => true, :autofocus => true %>
+    <%= f.input :first_name, :autofocus => true %>
+    <%= f.input :last_name, :autofocus => true %>
+<!--     <%= f.input :account_privacy, collection: User::PRIVACY, :autofocus => true, :include_blank => false %> -->
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>

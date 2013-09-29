@@ -5,14 +5,21 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :workouts
+  has_many :workouts,
+    inverse_of: :user
 
-  has_many :exercises
+  has_many :exercises,
+    inverse_of: :user
+
+  PRIVACY = %w{private public}
 
   validates_presence_of :username
   validates_presence_of :email
   validates_presence_of :password
   validates_presence_of :password_confirmation
+  validates_presence_of :account_privacy
+
+  validates_inclusion_of :account_privacy, in: PRIVACY
 
   validates_uniqueness_of :username, :case_sensitive => false, :message => "has already been taken"
   validates_uniqueness_of :email, :case_sensitive => false, :message => "has already been taken"

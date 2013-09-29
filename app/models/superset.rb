@@ -1,9 +1,13 @@
 class Superset < ActiveRecord::Base
   has_many :exercise_sets,
-    inverse_of: :Superset
+    inverse_of: :superset
 
-  belongs_to :workout,
+  accepts_nested_attributes_for :exercise_sets
+
+  belongs_to :combination,
     inverse_of: :supersets
+
+
 
 
 end

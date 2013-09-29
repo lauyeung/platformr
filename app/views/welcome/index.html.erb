@@ -1,16 +1,11 @@
 
-
-
-
-
-
-
 <% if user_signed_in? %>
-  <%= link_to 'Manage Exercises', 'exercises', class: 'btn btn-default' %>
+  <%= link_to 'Workouts', workouts_path, class: 'btn btn-success' %>
+  <%= link_to 'Manage Exercises', exercises_path, class: 'btn btn-success' %>
 <% else %>
   <h1>Welcome to PLATFORMR</h1>
   <p>The world's #1 app for tracking your progs.</p>
-  <%= link_to "Sign in", new_user_session_path, class: 'btn btn-default' %>
-  <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-default' %>
+  <%= link_to "Sign in", new_user_session_path, class: 'btn btn-success' %>
+  <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success' %>
 
 <% end %>

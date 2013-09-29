@@ -17,31 +17,34 @@ feature 'user adds exercises', %Q{
     sign_in_as(user)
     prev_count = Exercise.count
     visit new_exercise_path
-    fill_in 'Name', with: 'Clean'
+    fill_in 'Exercise name', with: 'Clean'
     click_button 'Create Exercise'
     expect(page).to have_content("Exercise was successfully added!")
     expect(Exercise.count).to eql(prev_count + 1)
   end
 
-  # scenario 'no information entered' do
-  #   prev_count = Exercise.count
-  #   visit '/exercises'
-  #   click_link 'Add New Exercise'
-  #   click_button 'Submit'
-  #   expect(page).to have_content("can't be blank")
-  #   expect(Exercise.count).to eql(prev_count)
-  # end
+  scenario 'no information entered' do
+    sign_in_as(user)
+    prev_count = Exercise.count
+    visit exercises_path
+    click_link 'Add New Exercise'
+    click_button 'Create Exercise'
+    expect(page).to have_content("can't be blank")
+    expect(Exercise.count).to eql(prev_count)
+  end
 
-  # scenario 'try to enter the same exercise again' do
-  #   Exercise.create(name: "Clean")
-  #   prev_count = Exercise.count
-  #   visit '/exercises'
-  #   click_link 'Add New Exercise'
-  #   fill_in 'Name', with: 'Clean'
-  #   click_button 'Submit'
-  #   expect(page).to have_content("already exists")
-  #   expect(Exercise.count).to eql(prev_count)
-  # end
+  scenario 'try to enter the same exercise again' do
+    exercise = 'Clean'
+    sign_in_as(user)
+    FactoryGirl.create(:exercise, name: exercise)
+    prev_count = Exercise.count
+    visit exercises_path
+    click_link 'Add New Exercise'
+    fill_in 'Exercise name', with: exercise
+    click_button 'Create Exercise'
+    expect(page).to have_content("already exists")
+    expect(Exercise.count).to eql(prev_count)
+  end
 
   def sign_in_as(user)
     visit new_user_session_path

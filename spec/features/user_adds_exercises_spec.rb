@@ -5,11 +5,11 @@ feature 'user adds exercises', %Q{
   As an authenticated user
   I want to update exercises
   So that I change what exercises I have available to me
-} do
+  } do
 
-# ACCEPTANCE CRITERIA
-# * I must specify the name of the exercise
-# * I must specify a unique exercise
+  # ACCEPTANCE CRITERIA
+  # * I must specify the name of the exercise
+  # * I must specify a unique exercise
 
   let(:user) { FactoryGirl.create(:user) }
 
@@ -56,13 +56,6 @@ feature 'user adds exercises', %Q{
     expect(Exercise.count).to eql(prev_count)
   end
 
-  def sign_in_as(user)
-    visit '/'
-    within(".dropdown") do
-      fill_in 'Username or email', with: user.email
-      fill_in 'Password', with: user.password
-      click_button 'Sign in'
-    end
-  end
+  include PlatformrTestHelpers
 
 end

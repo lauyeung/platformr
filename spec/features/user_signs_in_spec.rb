@@ -13,4 +13,15 @@ feature 'user signs in', %Q{
   # * If I am already signed in, I can't sign in again
 
 
+  let(:user) { FactoryGirl.create(:user) }
+
+  scenario 'user signs out' do
+
+    sign_in_as(user)
+    expect(page).to have_content("Signed in successfully.")
+
+  end
+
+  include PlatformrTestHelpers
+
 end

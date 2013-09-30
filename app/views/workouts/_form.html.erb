@@ -1,4 +1,11 @@
 <%= simple_form_for @workout do |f| %>
   <%= f.input :workout_date %>
+
+  <h3>Add Combination</h3>
+  <%= f.simple_fields_for :combinations do |cf| %>
+    <%= cf.input :sets %>
+    <%= cf.input :sets_complete %>
+  <%- end -%>
+
   <%= f.button :submit, class: 'btn btn-success' %>
 <% end %>

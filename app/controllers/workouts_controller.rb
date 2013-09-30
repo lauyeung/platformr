@@ -8,10 +8,12 @@ class WorkoutsController < ApplicationController
 
   def new
     @workout = Workout.new
+    @workout.combinations.build
   end
 
   def create
     @workout = current_user.workouts.build(workout_params)
+
     if @workout.save
       flash[:notice] = "Workout was successfully added!"
       redirect_to workouts_path
@@ -36,13 +38,12 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:date,
-      combinations_attributes: [:id, :sets, :sets_complete,
-        supersets_attributes: [:id, :weight,
-          exercise_sets_attributes: [:id, :reps, :exercise_id]
-        ]
-      ])
+    params.require(:workout).permit(:workout_date,
+      combinations_attributes: [:sets, :sets_complete
+        # supersets_attributes: [:id, :weight,
+        #   exercise_sets_attributes: [:id, :reps, :exercise_id]
+        # ]
+      ]
+    )
   end
-
-
 end

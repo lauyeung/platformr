@@ -1,6 +1,7 @@
 class Workout < ActiveRecord::Base
   has_many :combinations,
-    inverse_of: :workout
+    inverse_of: :workout,
+    dependent: :destroy
 
   has_many :supersets, through: :combinations
 
@@ -10,5 +11,4 @@ class Workout < ActiveRecord::Base
     inverse_of: :workouts
 
   validates_presence_of :workout_date
-
 end

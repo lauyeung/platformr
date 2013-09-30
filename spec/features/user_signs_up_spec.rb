@@ -17,7 +17,9 @@ feature 'user signs up', %Q{
   scenario 'user does not specify valid information' do
     prev_count = User.count
     visit '/'
-    click_link 'Sign up'
+    within(".nav") do
+      click_link 'Sign up'
+    end
     click_button 'Sign up'
     expect(User.count).to eql(prev_count)
     expect(page).to have_content("Please review the problems")
@@ -28,11 +30,15 @@ feature 'user signs up', %Q{
     user = FactoryGirl.create(:user)
     prev_count = User.count
     visit '/'
-    click_link 'Sign up'
-    fill_in 'Username', with: user.username
-    fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password, :match => :prefer_exact
-    fill_in 'Password confirmation', with: user.password_confirmation, match: :prefer_exact
+    within(".nav") do
+      click_link 'Sign up'
+    end
+    within(".form-inputs") do
+      fill_in 'Username', with: user.username
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password, :match => :prefer_exact
+      fill_in 'Password confirmation', with: user.password_confirmation, match: :prefer_exact
+    end
     click_button 'Sign up'
     expect(User.count).to eql(prev_count)
     expect(page).to have_content("Please review the problems")

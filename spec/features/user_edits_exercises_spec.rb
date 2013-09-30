@@ -28,10 +28,12 @@ feature 'user adds exercises', %Q{
 
 
   def sign_in_as(user)
-    visit new_user_session_path
-    fill_in 'Username or email', with: user.email
-    fill_in 'Password', with: user.password
-    click_button 'Sign in'
+    visit '/'
+    within(".dropdown") do
+      fill_in 'Username or email', with: user.email
+      fill_in 'Password', with: user.password
+      click_button 'Sign in'
+    end
   end
 
 end

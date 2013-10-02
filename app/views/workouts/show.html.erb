@@ -1,0 +1,8 @@
+<%= @workout.workout_date %>
+
+<ol>
+  <%- for combination in @workout.combinations -%>
+    <li><%= combination.sets %> | <%= combination.sets_complete %></li>
+  <%- end -%>
+</ol>
+

@@ -5,10 +5,22 @@ class WorkoutsController < ApplicationController
     @workouts = current_user.workouts
   end
 
+  def show
+    @workout = Workout.find(params[:id])
+  end
+
 
   def new
     @workout = Workout.new
-    @workout.combinations.build
+    1.times do
+      combination = @workout.combinations.build
+      2.times do
+        superset = combination.supersets.build
+        2.times do
+          exercise_set = superset.exercise_sets.build
+        end
+      end
+    end
   end
 
   def create
@@ -39,10 +51,10 @@ class WorkoutsController < ApplicationController
 
   def workout_params
     params.require(:workout).permit(:workout_date,
-      combinations_attributes: [:sets, :sets_complete
-        # supersets_attributes: [:id, :weight,
-        #   exercise_sets_attributes: [:id, :reps, :exercise_id]
-        # ]
+      combinations_attributes: [:sets, :sets_complete,
+        supersets_attributes: [:weight,
+          exercise_sets_attributes: [:reps, :exercise_id]
+        ]
       ]
     )
   end

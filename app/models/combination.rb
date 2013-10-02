@@ -5,7 +5,9 @@ class Combination < ActiveRecord::Base
 
   has_many :exercises, through: :supersets
 
-  accepts_nested_attributes_for :supersets
+  accepts_nested_attributes_for :supersets,
+    allow_destroy: true
+
 
   belongs_to :workout,
     inverse_of: :combinations

@@ -1,0 +1,16 @@
+<div class='fields'>
+  <strong>Exercise Combination</strong> | <%= link_to_remove_fields('Remove Combination', f) %>
+  <div class="form-group form-inline">
+    <%= f.input :sets %>
+    <%= f.input :sets_complete %>
+  </div>
+  <hr>
+  <%= f.simple_fields_for :supersets do |builder| %>
+  <%= render 'superset_fields', f: builder %>
+  <%- end -%>
+  <p><%= link_to_add_fields('Add a Complex', f, :supersets) %></p>
+  <hr>
+</div>
+
+
+

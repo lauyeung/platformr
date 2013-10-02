@@ -1,0 +1,9 @@
+<div class='fields'>
+  <span>Exercise Complex</span> | <%= link_to_remove_fields('Remove Complex', f) %>
+  <%= f.input :weight %>
+  <%= f.simple_fields_for :exercise_sets do |builder| %>
+  <%= render 'exercise_set_fields', f: builder %>
+  <%- end -%>
+  <p><%= link_to_add_fields('Add an Exercise', f, :exercise_sets) %></p>
+  <hr>
+</div>

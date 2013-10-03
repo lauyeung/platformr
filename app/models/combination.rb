@@ -15,7 +15,10 @@ class Combination < ActiveRecord::Base
   validates_presence_of :sets_complete
   validates_presence_of :workout
 
-  validates_numericality_of :sets, only_integer: true, greater_than_or_equal_to: 0
-  validates_numericality_of :sets_complete, only_integer: true, greater_than_or_equal_to: 0, less_than_or_equal_to: :sets
+  validates_numericality_of :sets, only_integer: true, greater_than: 0
+  validates_numericality_of :sets_complete, only_integer: true, greater_than_or_equal_to: 0
+
+  validates_numericality_of :sets_complete, less_than_or_equal_to: :sets,
+    if: Proc.new { |combination| combination.sets.present? }
 
 end

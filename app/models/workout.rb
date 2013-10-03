@@ -4,6 +4,8 @@ class Workout < ActiveRecord::Base
     dependent: :destroy
 
   has_many :supersets, through: :combinations
+  has_many :exercise_sets, through: :supersets
+  has_many :exercises, through: :exercise_sets
 
   accepts_nested_attributes_for :combinations,
     reject_if: proc { |a| a[:sets].blank?; },
@@ -14,20 +16,7 @@ class Workout < ActiveRecord::Base
 
   validates_presence_of :workout_date
   validates_presence_of :user
-  validate :combination_exercise?
-  validate :combinations?
 
-  def combinations?
-    if !combinations.any?
-      errors.add(:workout, "You must have at least one set!")
-    end
-  end
-
-  def combination_exercise?
-    if combinations.any?
-      if !combinations.first.supersets.first.exercise_sets.any?
-        errors.add(:workout, "You must have at least one exercise!")
-      end
-    end
-  end
+  validates_presence_of :combinations
+  validates_presence_of :exercises
 end

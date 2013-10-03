@@ -29,7 +29,7 @@ class WorkoutsController < ApplicationController
       flash[:notice] = "Workout was successfully added!"
       redirect_to workouts_path
     else
-      render :new
+      render 'new'
     end
   end
 

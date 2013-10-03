@@ -1,4 +1,5 @@
 class Exercise < ActiveRecord::Base
+
   has_many :exercise_sets,
     inverse_of: :exercise
 

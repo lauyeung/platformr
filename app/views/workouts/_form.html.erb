@@ -1,4 +1,9 @@
 <%= simple_form_for @workout do |f| %>
+  <% if @workout.errors[:workout].any? %>
+    <% @workout.errors[:workout].each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  <% end %>
   <%= f.input :workout_date %>
 
 

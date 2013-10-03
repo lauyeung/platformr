@@ -1,8 +1,53 @@
-<%= @workout.workout_date %>
+<h3>Workout Date: <%= @workout.workout_date %></h3>
 
-<ol>
+<!-- <ol>
   <%- for combination in @workout.combinations -%>
     <li><%= combination.sets %> | <%= combination.sets_complete %></li>
   <%- end -%>
 </ol>
+ -->
 
+<!-- <ol>
+<%- @workout.combinations.each do |combination| -%>
+<li>
+  <%- combination.supersets.each do |superset| -%>
+    <%- superset.exercise_sets.each do |exercise_set| -%>
+    (<%= exercise_set.exercise.name %> x <%= exercise_set.reps %>)
+    <%- end -%>
+    <%- if superset.weight.present?-%>
+    @ <%= superset.weight %><%- end -%> /
+  <%- end -%>
+  <%= combination.sets %> | <%= combination.sets_complete %></li>
+<%- end -%>
+</ol>
+ -->
+<br><br>
+
+
+<table class="table table-bordered">
+  <th>
+  <th>Combination</th>
+  <th>Sets</th>
+  <th>Sets Completed</th>
+<%- @workout.combinations.each_with_index do |combination, index| -%>
+<tr>
+  <td><%= index + 1 %></td>
+  <td>
+  <%- combination.supersets.each do |superset| -%>
+
+<div>
+    <%- superset.exercise_sets.each do |exercise_set| -%>
+
+    (<%= exercise_set.exercise.name %> x <%= exercise_set.reps %> reps)
+    <%- end -%>
+    <%- if superset.weight.present?-%>
+    @ <%= superset.weight %><%- end -%>
+
+  <%- end -%>
+  </div>
+  </td>
+<td><%= combination.sets %></td>
+<td><%= combination.sets_complete %></td>
+<%- end -%>
+</tr>
+</table>

@@ -9,7 +9,6 @@ class WorkoutsController < ApplicationController
     @workout = Workout.find(params[:id])
   end
 
-
   def new
     @workout = Workout.new
     1.times do

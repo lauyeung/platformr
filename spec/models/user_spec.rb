@@ -13,10 +13,6 @@ describe User do
   describe 'validates the uniqueness of username (case insensitive)' do
     let(:prev_user) { FactoryGirl.create(:user) }
 
-# WHY IS THIS NOT WORKING?!?!?!?!?! SOMETIMES FAILS - same with exercise spec
-# Failure/Error: let(:prev_user) { FactoryGirl.create(:user) }
-# ActiveRecord::RecordInvalid:
-# Validation failed: Email has already been taken, Email has already been taken, Username has already been taken
     it 'does not allow the same username to be used' do
       user = FactoryGirl.build(:user, username: prev_user.username)
       expect(user).to_not be_valid

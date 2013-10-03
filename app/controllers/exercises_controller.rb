@@ -2,8 +2,7 @@ class ExercisesController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @exercises = current_user.exercises
-    @exercise = Exercise.new
+    @exercises = current_user.exercises.order('name')
   end
 
   def new

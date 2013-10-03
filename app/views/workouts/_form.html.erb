@@ -1,11 +1,15 @@
 <%= simple_form_for @workout do |f| %>
-  <%= f.input :workout_date %>
+  <% @workout.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
 
+  <%= f.input :workout_date %>
 
   <%= f.simple_fields_for :combinations do |builder| %>
     <%= render 'combination_fields', f: builder %>
   <%- end -%>
 
   <p><%= link_to_add_fields('Add a Combination', f, :combinations) %></p>
+
   <%= f.button :submit, class: 'btn btn-success' %>
 <% end %>

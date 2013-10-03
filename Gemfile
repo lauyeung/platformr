@@ -21,6 +21,8 @@ gem 'simple_form', git: 'git://github.com/plataformatec/simple_form.git'
 
 gem 'anjlab-bootstrap-rails', '>= 3.0.0.0', :require => 'bootstrap-rails'
 
+gem 'chartkick'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'shoulda'

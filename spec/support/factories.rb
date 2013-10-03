@@ -6,13 +6,45 @@ FactoryGirl.define do
     sequence(:email) {|n| "user#{n}@email.com" }
     password "foofoobar"
     password_confirmation { |u| u.password }
+
+    factory :user_with_workout do
+      after(:create) do |user|
+        FactoryGirl.create(:workout, user: user)
+      end
+    end
+
+ end
+
+  factory :workout do
+    workout_date Time.now
+    user
+
+    factory :workout_with_blank_combination do
+      after(:create) do |workout|
+        FactoryGirl.create(:combination, workout: workout, sets: '')
+      end
+    end
   end
-end
 
+  factory :combination do
+    sets 5
+    sets_complete 0
+    workout
+  end
 
-FactoryGirl.define do
+  factory :superset do
+    weight 50
+    combination
+  end
+
+  factory :exercise_set do
+    reps 3
+    superset
+    exercise
+  end
+
   factory :exercise do
     sequence(:name) {|n| "Exercise #{n}" }
-    association(:user)
+    user
   end
 end

@@ -1,4 +1,5 @@
 class Superset < ActiveRecord::Base
+
   has_many :exercise_sets,
     inverse_of: :superset
 
@@ -9,7 +10,9 @@ class Superset < ActiveRecord::Base
   belongs_to :combination,
     inverse_of: :supersets
 
+  validates_presence_of :combination
 
+  validates_numericality_of :weight, if: "!weight.nil?"
 
 
 end

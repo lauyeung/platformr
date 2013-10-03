@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130927174407) do
+ActiveRecord::Schema.define(version: 20131003202819) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "combinations", force: true do |t|
-    t.integer  "sets",                      null: false
+    t.integer  "sets",          default: 0, null: false
     t.integer  "sets_complete", default: 0, null: false
     t.integer  "workout_id",                null: false
     t.datetime "created_at"

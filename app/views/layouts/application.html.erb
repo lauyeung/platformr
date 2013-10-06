@@ -25,7 +25,7 @@
       <%- if user_signed_in? -%>
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-          <li><%= link_to 'Add New Workout', new_workout_path %></li>
+          <li><%= link_to '+ New Workout', new_workout_path %></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Exercises<b class="caret"></b></a>
             <ul class="dropdown-menu">
@@ -81,6 +81,10 @@
         </div>
       </div>
       <div id="push"></div>
+    </div>
+
+    <div id="lifting-icon">
+      <a href="https://www.facebook.com/NorwoodWeightlifing" target="_blank"><%= image_tag("weightliftingicon.png", alt: "weightlifting") %></a>
     </div>
 
     <div id="footer">

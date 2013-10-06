@@ -15,7 +15,7 @@ body {
   height: 100%;
   padding-bottom: 30px;
   /* Negative indent footer by it's height */
-  margin: 0 auto -33px;
+  margin: 0 auto -67px;
 }
 
 /* Set the fixed height of the footer here */
@@ -26,6 +26,10 @@ body {
 #footer {
   background-color: #eee;
   text-align: center;
+}
+
+#lifting-icon {
+  text-align: right;
 }
 
 #dropdown-login {

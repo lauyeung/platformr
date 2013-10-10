@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131003202819) do
+ActiveRecord::Schema.define(version: 20131010002426) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20131003202819) do
   add_index "comments", ["workout_id"], name: "index_comments_on_workout_id", using: :btree
 
   create_table "exercise_sets", force: true do |t|
-    t.integer  "reps",        null: false
-    t.integer  "superset_id", null: false
-    t.integer  "exercise_id", null: false
+    t.integer  "reps",        default: 0, null: false
+    t.integer  "superset_id",             null: false
+    t.integer  "exercise_id",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

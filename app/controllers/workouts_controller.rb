@@ -11,20 +11,13 @@ class WorkoutsController < ApplicationController
 
   def new
     @workout = Workout.new
-    1.times do
-      combination = @workout.combinations.build
-      2.times do
-        superset = combination.supersets.build
-        2.times do
-          exercise_set = superset.exercise_sets.build
-        end
-      end
-    end
+    combination = @workout.combinations.build
+    superset = combination.supersets.build
+    exercise_set = superset.exercise_sets.build
   end
 
   def create
     @workout = current_user.workouts.build(workout_params)
-    binding.pry
 
     if @workout.save
       flash[:notice] = "Workout was successfully added!"

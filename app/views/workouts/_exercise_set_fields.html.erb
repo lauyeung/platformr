@@ -2,6 +2,6 @@
   <div class="form-group form-inline">
     <%= f.association :exercise %>
     <%= f.input :reps %>
-    <%= link_to_remove_fields('Remove Exercise', f) %>
+    <%= exercise_removal_link(f) %>
   </div>
 </div>

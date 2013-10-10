@@ -5,10 +5,9 @@
 
   <div class="row">
     <%= f.input :workout_date,
-      wrapper_html: { class: "col-md-2 span12" } %>
+      wrapper_html: { class: "col-md-12" } %>
     <%# f.input_field :workout_date(1i) %>
   </div>
-  <hr>
 
   <%= f.simple_fields_for :combinations do |builder| %>
     <%= render 'combination_fields', f: builder %>

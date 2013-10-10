@@ -1,5 +1,8 @@
 
 <% if user_signed_in? %>
+  <%= "Welcome back, #{current_user.username}!" %>
+  <%= pie_chart({"Football" => 10, "Basketball" => 5}) %>
+  <%= line_chart current_user.workouts.group_by_day(:workout_date).count %>
 <% else %>
   <h1 class='brand'>PLATFORMR</h1>
   <p>The world's #1 app for tracking your progs.</p>

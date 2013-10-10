@@ -68,8 +68,6 @@
 
 
     <div id="wrap" class="container">
-      <div class="row">
-        <div class='container'>
           <div class="notice"><%= notice %></div>
           <div class="alert"><%= alert %></div>
           <%- if user_signed_in? -%>
@@ -79,8 +77,6 @@
             </ul>
           <%- end -%>
           <%= yield %>
-        </div>
-      </div>
       <div id="push"></div>
     </div>
 

@@ -1,7 +1,7 @@
 <div class='fields row bottom-border'>
-  <h4>Exercise Complex <%= superset_fields_removal_link(f) %></h4>
+  <h4 class='col-md-12'>Exercise Complex <%= superset_fields_removal_link(f) %></h4>
 
-  <%= f.input :weight, wrapper_html: { class: "col-md-3" } %>
+  <%= f.input :weight, wrapper_html: { class: "col-md-3" }, label_html: { class: "block-labels" }  %>
 
   <div class="col-md-9">
     <%= f.simple_fields_for :exercise_sets do |builder| %>

@@ -1,20 +1,13 @@
-<div class='fields'>
-  <strong>Exercise Complex</strong>
+<div class='fields row bottom-border'>
+  <h4>Exercise Complex <%= superset_fields_removal_link(f) %></h4>
 
-  <%= superset_fields_removal_link(f) %>
-<div class="row">
-  <div class="col-md-2">
+  <%= f.input :weight, wrapper_html: { class: "col-md-3" } %>
 
-  <%= f.input :weight %>
-</div>
-<div class="col-md-10">
-  <%= f.simple_fields_for :exercise_sets do |builder| %>
-  <%= render 'exercise_set_fields', f: builder %>
-  <%- end -%>
+  <div class="col-md-9">
+    <%= f.simple_fields_for :exercise_sets do |builder| %>
+    <%= render 'exercise_set_fields', f: builder %>
+    <%- end -%>
 
-  <p><%= link_to_add_fields('Add an Exercise', f, :exercise_sets) %></p>
+    <p><%= link_to_add_fields('Add an Exercise', f, :exercise_sets) %></p>
   </div>
-</div>
-  <hr>
-
 </div>

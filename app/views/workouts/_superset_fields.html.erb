@@ -1,13 +1,20 @@
-
-  <span>Exercise Complex</span>
+<div class='fields'>
+  <strong>Exercise Complex</strong>
 
   <%= superset_fields_removal_link(f) %>
-
-
+<div class="row">
+  <div class="col-md-2">
 
   <%= f.input :weight %>
+</div>
+<div class="col-md-10">
   <%= f.simple_fields_for :exercise_sets do |builder| %>
   <%= render 'exercise_set_fields', f: builder %>
   <%- end -%>
+
   <p><%= link_to_add_fields('Add an Exercise', f, :exercise_sets) %></p>
+  </div>
+</div>
   <hr>
+
+</div>

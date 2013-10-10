@@ -41,5 +41,6 @@ SimpleForm.setup do |config|
   # buttons and other elements.
   config.default_wrapper = :bootstrap
   # config.form_class = "form-horizontal"
-  config.input_class = 'form-control'
+  # config.input_class = 'form-control'
+  # config.input_class = 'input-sm'
 end

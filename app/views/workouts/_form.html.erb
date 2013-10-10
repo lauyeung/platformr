@@ -3,16 +3,21 @@
     <p><%= msg %></p>
   <% end %> -->
 
-  <%= f.input :workout_date %>
+  <div class="row">
+    <%= f.input :workout_date,
+      wrapper_html: { class: "col-md-2 span12" } %>
+    <%# f.input_field :workout_date(1i) %>
+  </div>
+  <hr>
 
   <%= f.simple_fields_for :combinations do |builder| %>
     <%= render 'combination_fields', f: builder %>
   <%- end -%>
 
   <p><%= link_to_add_fields('Add a Combination', f, :combinations) %></p>
+  <hr>
 
   <%= f.button :submit, class: 'btn btn-success' %>
+
 <% end %>
-
-
 

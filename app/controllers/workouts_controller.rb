@@ -18,6 +18,7 @@ class WorkoutsController < ApplicationController
 
   def create
     @workout = current_user.workouts.build(workout_params)
+    binding.pry
 
     if @workout.save
       flash[:notice] = "Workout was successfully added!"

@@ -1,0 +1,58 @@
+<%= simple_form_for @workout do |f| %>
+  <% @workout.errors.full_messages.each do |msg| %>
+    <p><%= msg %></p>
+  <% end %>
+
+  <%= f.input :workout_date %>
+
+    <div class="container">
+      <div class="row">
+
+
+
+  <%= f.simple_fields_for :combinations do |cf| %>
+    <div class='fields'>
+      <div class='col-md-2'>
+        <strong>Exercise Combination</strong>
+        <%= combination_fields_removal_link(cf) %>
+
+
+          <%= cf.input :sets %>
+          <%= cf.input :sets_complete %>
+
+        <hr>
+      </div>
+
+      <div class='col-md-10'>
+      <%= cf.simple_fields_for :supersets do |sf| %>
+        <div class='fields'>
+          <span>Exercise Complex</span>
+          <%= superset_fields_removal_link(sf) %>
+
+          <%= sf.input :weight %>
+          <%= sf.simple_fields_for :exercise_sets do |ef| %>
+            <div class='fields'>
+              <div class="form-group form-inline">
+                <%= ef.association :exercise %>
+                <%= ef.input :reps %>
+                <%= exercise_removal_link(ef) %>
+              </div>
+            </div>
+          <%- end -%>
+          <p><%= link_to_add_fields('Add an Exercise', sf, :exercise_sets) %></p>
+          <hr>
+        </div>
+      <%- end -%>
+
+      <p><%= link_to_add_fields('Add a Complex', cf, :supersets) %></p>
+      <hr>
+    </div>
+  <%- end -%>
+</div>
+
+</div></div>
+
+  <p><%= link_to_add_fields('Add a Combination', f, :combinations) %></p>
+
+  <%= f.button :submit, class: 'btn btn-success' %>
+<% end %>

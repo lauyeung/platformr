@@ -1,7 +1,7 @@
 <%= simple_form_for @workout do |f| %>
-  <% @workout.errors.full_messages.each do |msg| %>
+<!--   <% @workout.errors.full_messages.each do |msg| %>
     <p><%= msg %></p>
-  <% end %>
+  <% end %> -->
 
   <%= f.input :workout_date %>
 
@@ -13,3 +13,6 @@
 
   <%= f.button :submit, class: 'btn btn-success' %>
 <% end %>
+
+
+

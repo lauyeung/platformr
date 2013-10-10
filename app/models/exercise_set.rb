@@ -10,6 +10,6 @@ class ExerciseSet < ActiveRecord::Base
   validates_presence_of :exercise
   validates_presence_of :superset
 
-  validates_numericality_of :reps, only_integer: true
+  validates_numericality_of :reps, only_integer: true, greater_than: 0
 
 end

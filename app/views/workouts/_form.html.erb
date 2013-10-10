@@ -1,3 +1,4 @@
+
 <%= simple_form_for @workout do |f| %>
 <!--   <% @workout.errors.full_messages.each do |msg| %>
     <p><%= msg %></p>
@@ -5,7 +6,7 @@
 
   <div class="row">
     <%= f.input :workout_date,
-      wrapper_html: { class: "col-md-12" } %>
+      wrapper_html: { class: "col-md-12" }, label_html: { class: "block-labels" }  %>
     <%# f.input_field :workout_date(1i) %>
   </div>
 

@@ -1,14 +1,14 @@
 <div class='row fields combination'>
 
-  <h3>Exercise Combination
+  <h3 class="col-md-12">Exercise Combination
   <%= combination_fields_removal_link(f) %></h3>
 
-  <div class="form-group form-inline col-md-2">
-    <%= f.input :sets, :error => false %>
-    <%= f.input :sets_complete %>
+  <div class="col-md-3">
+    <%= f.input :sets, label_html: { class: "block-labels" } %>
+    <%= f.input :sets_complete, label_html: { class: "block-labels" }  %>
   </div>
 
-  <div class="col-md-10">
+  <div class="col-md-9">
     <%= f.simple_fields_for :supersets do |builder| %>
       <%= render 'superset_fields', f: builder %>
     <%- end -%>

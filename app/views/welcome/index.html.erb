@@ -1,6 +1,8 @@
 
 <% if user_signed_in? %>
-  <%= "Welcome back, #{current_user.username}!" %>
+  <%= "Number of workouts: #{current_user.workouts.count}" %><br>
+  <%= "Number of exercises: #{current_user.exercises.count}" %>
+
   <%= pie_chart current_user.exercises.group('name').count %>
   <%= line_chart current_user.workouts.group_by_day(:workout_date).count %>
 <% else %>

@@ -1,7 +1,8 @@
 class Superset < ActiveRecord::Base
 
   has_many :exercise_sets,
-    inverse_of: :superset
+    inverse_of: :superset,
+    dependent: :destroy
 
   accepts_nested_attributes_for :exercise_sets,
     reject_if: proc { |a| a[:reps].blank? },

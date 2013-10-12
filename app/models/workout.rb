@@ -18,5 +18,4 @@ class Workout < ActiveRecord::Base
   validates_presence_of :user
 
   validates_presence_of :combinations
-  validates_presence_of :exercises
 end

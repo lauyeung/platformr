@@ -14,19 +14,20 @@ feature 'user adds workouts', %Q{
   # * I can specify the weight at which each set of the exercise is to be performed (not required)
 
   let(:user) { FactoryGirl.create(:user) }
-  let(:exercise) { FactoryGirl.create(:exercise) }
+  let(:exercise) { FactoryGirl.create(:exercise, user_id: user.id) }
 
   scenario 'specifies valid information' do
     sign_in_as(user)
+    exercise
 
     prev_count = Workout.count
     visit new_workout_path
     select '2013', from: 'workout[workout_date(1i)]'
     select 'October', from: 'workout[workout_date(2i)]'
     select '2', from: 'workout[workout_date(3i)]'
-    fill_in 'Sets', with: '5'
+    fill_in 'Sets', with: '5', :match => :prefer_exact
     fill_in 'Weight', with: '50'
-    select exercise, from: 'Exercise'
+    select exercise.name, from: 'Exercise'
     fill_in 'Reps', with: '2'
     click_button 'Create Workout'
     expect(page).to have_content("Workout was successfully added!")

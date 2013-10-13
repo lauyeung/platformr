@@ -1,8 +1,6 @@
 module PlatformrTestHelpers
 
-
   def sign_in_as(user)
-
     visit '/'
     within(".dropdown") do
       fill_in 'Username or email', with: user.email
@@ -10,8 +8,5 @@ module PlatformrTestHelpers
       click_button 'Sign in'
     end
   end
+
 end
-
-
-
-

@@ -12,10 +12,8 @@ class Exercise < ActiveRecord::Base
 
   before_destroy :check_exercise_not_in_use
 
-
-
   def check_exercise_not_in_use
-    self.exercise_sets == 0
+    self.exercise_sets.empty?
   end
 
 end

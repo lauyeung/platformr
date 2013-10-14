@@ -5,7 +5,7 @@ feature 'user adds exercises', %Q{
   As an authenticated user
   I want to update exercises
   So that I change what exercises I have available to me
-  } do
+} do
 
   # ACCEPTANCE CRITERIA
   # * I must specify the name of the exercise

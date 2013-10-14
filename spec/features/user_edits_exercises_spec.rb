@@ -6,8 +6,8 @@ feature 'user adds exercises', %Q{
   So that I can customize my workouts to how I like them
 } do
 
-# ACCEPTANCE CRITERIA
-# * I want to edit the names of exercises
+  # ACCEPTANCE CRITERIA
+  # * I want to edit the names of exercises
 
   let(:user) { FactoryGirl.create(:user) }
 

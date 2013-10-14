@@ -4,7 +4,7 @@ feature 'user deletes workouts', %Q{
   As an authenticated user
   I want to be able to delete workouts
   So that I can remove workouts that I do not need in my tracker or were erroneously added
-  } do
+} do
 
   # ACCEPTANCE CRITERIA
   # * I can delete one or more workouts from a summary location

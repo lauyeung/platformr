@@ -4,7 +4,7 @@ feature 'user signs in', %Q{
   As an authenticated user
   I want to sign in
   So that I can track my workout progress
-  } do
+} do
 
   # ACCEPTANCE CRITERIA
   # * if I specify a valid, previously registered email (or username) and password, I am authenticated and I gain access to the system

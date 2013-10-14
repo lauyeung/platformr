@@ -5,7 +5,7 @@ feature 'user signs up', %Q{
   As an unauthenticated user
   I want to sign up
   So that I can track my workout progress
-  } do
+} do
 
   # ACCEPTANCE CRITERIA
   # * I must specify a unique username

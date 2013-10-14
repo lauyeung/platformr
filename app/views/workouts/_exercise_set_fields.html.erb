@@ -1,6 +1,6 @@
 <div class='fields'>
   <div class="form-group form-inline">
-    <%= f.association :exercise, collection: current_user.exercises.all(order: 'name') %>
+    <%= f.association :exercise, collection: current_user.exercises.order('name') %>
     <%= f.input :reps %><br>
     <%= exercise_removal_link(f) %>
   </div>

@@ -21,7 +21,7 @@ class WorkoutsController < ApplicationController
 
     if @workout.save
       flash[:notice] = "Workout was successfully added!"
-      redirect_to workouts_path
+      redirect_to workout_path(@workout)
     else
       render 'new'
     end
@@ -34,7 +34,7 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find(params[:id])
     if @workout.update(workout_params)
-      redirect_to workouts_path, notice: 'Workout was successfully updated!'
+      redirect_to workout_path(@workout), notice: 'Workout was successfully updated!'
     else
       render action: 'edit'
     end
@@ -51,10 +51,10 @@ class WorkoutsController < ApplicationController
   private
 
   def workout_params
-    params.require(:workout).permit(:workout_date,
-      combinations_attributes: [:sets, :sets_complete,
-        supersets_attributes: [:weight,
-          exercise_sets_attributes: [:reps, :exercise_id]
+    params.require(:workout).permit(:id, :workout_date,
+      combinations_attributes: [:id, :sets, :sets_complete,
+        supersets_attributes: [:id, :weight,
+          exercise_sets_attributes: [:id, :reps, :exercise_id]
         ]
       ]
     )

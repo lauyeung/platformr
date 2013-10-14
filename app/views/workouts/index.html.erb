@@ -1,29 +1,25 @@
+<br><%= link_to 'Add New Workout', new_workout_path, class: 'btn btn-success' %>
 
-  <!-- Table -->
-  <table class="table table-hover">
+<table class="table table-hover">
 
-    <thead>
-      <tr>
-        <th>Workout Date</th>
-        <th></th>
-        <th></th>
-        <th></th>
+  <thead>
+    <tr>
+      <th>Workout Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @workouts.each do |workout| %>
+      <tr class="workout_<%= workout.id %>">
+        <td><%= workout.workout_date %></td>
+        <td><%= link_to 'View', workout %></td>
+        <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
+        <td><%= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    </thead>
+    <% end %>
+  </tbody>
 
-    <tbody>
-      <% @workouts.each do |workout| %>
-        <tr class="workout_<%= workout.id %>">
-          <td><%= workout.workout_date %></td>
-          <td><%= link_to 'Show', workout %></td>
-          <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
-          <td><%= link_to 'Destroy', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-
-  </table>
-
-<br>
-<%= link_to 'Add New Workout', new_workout_path, class: 'btn btn-success' %>
-</div>
+</table>

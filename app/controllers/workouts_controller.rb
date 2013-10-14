@@ -2,7 +2,7 @@ class WorkoutsController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @workouts = current_user.workouts
+    @workouts = current_user.workouts.order("workout_date DESC")
   end
 
   def show
@@ -34,9 +34,17 @@ class WorkoutsController < ApplicationController
   def update
     @workout = Workout.find(params[:id])
     if @workout.update(workout_params)
-      redirect_to exercises_path, notice: 'Workout was successfully updated!'
+      redirect_to workouts_path, notice: 'Workout was successfully updated!'
     else
       render action: 'edit'
+    end
+  end
+
+  def destroy
+    @workout = Workout.find(params[:id])
+    if @workout.user == current_user
+      @workout.destroy
+      redirect_to workouts_path, notice: 'Workout was successfully deleted!'
     end
   end
 

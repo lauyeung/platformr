@@ -1,28 +1,25 @@
-  <!-- Table -->
-  <table class="table table-hover">
+<br><%= link_to 'Add New Exercise', new_exercise_path, id: 'add-exercise', class: 'btn btn-success' %>
 
-    <thead>
-      <tr>
-        <th>Exercise Name</th>
-        <th></th>
-        <th></th>
-        <th></th>
+<table class="table table-hover">
+
+  <thead>
+    <tr>
+      <th>Exercise Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @exercises.each do |exercise| %>
+      <tr class="exercise_<%= exercise.id %>">
+        <td><%= exercise.name %></td>
+        <td><%= link_to 'View', exercise %></td>
+        <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
+        <td><%= link_to 'Delete', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-    </thead>
+    <% end %>
+  </tbody>
 
-    <tbody>
-      <% @exercises.each do |exercise| %>
-        <tr class="exercise_<%= exercise.id %>">
-          <td><%= exercise.name %></td>
-          <td><%= link_to 'Show', exercise %></td>
-          <td><%= link_to 'Edit', edit_exercise_path(exercise) %></td>
-          <td><%= link_to 'Destroy', exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
-    </tbody>
-
-  </table>
-
-<br>
-
-<%= link_to 'Add New Exercise', new_exercise_path, id: 'add-exercise', class: 'btn btn-success' %>
+</table>

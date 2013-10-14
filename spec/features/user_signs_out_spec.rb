@@ -4,10 +4,10 @@ feature 'user signs out', %Q{
   As an authenticated user
   I want to sign out
   So that I can avoid others using my account if I share a computer
-  } do
+} do
 
-# ACCEPTANCE CRITERIA
-# * If I log out, I will go from being an authenticated user and become unauthenticated
+  # ACCEPTANCE CRITERIA
+  # * If I log out, I will go from being an authenticated user and become unauthenticated
 
   let(:user) { FactoryGirl.create(:user) }
 

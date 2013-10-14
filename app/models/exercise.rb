@@ -10,4 +10,12 @@ class Exercise < ActiveRecord::Base
 
   validates_uniqueness_of :name, :case_sensitive => false, :message => "already exists"
 
+  before_destroy :check_exercise_not_in_use
+
+
+
+  def check_exercise_not_in_use
+    self.exercise_sets == 0
+  end
+
 end

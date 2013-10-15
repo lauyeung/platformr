@@ -5,6 +5,9 @@ class ExercisesController < ApplicationController
     @exercises = current_user.exercises.order('name')
   end
 
+  def show
+  end
+
   def new
     @exercise = Exercise.new
   end

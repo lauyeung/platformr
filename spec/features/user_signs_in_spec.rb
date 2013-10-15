@@ -16,10 +16,8 @@ feature 'user signs in', %Q{
   let(:user) { FactoryGirl.create(:user) }
 
   scenario 'user signs out' do
-
     sign_in_as(user)
     expect(page).to have_content("Signed in successfully.")
-
   end
 
   include PlatformrTestHelpers

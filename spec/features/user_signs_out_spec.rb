@@ -12,11 +12,9 @@ feature 'user signs out', %Q{
   let(:user) { FactoryGirl.create(:user) }
 
   scenario 'user signs out' do
-
     sign_in_as(user)
     click_link 'Sign out'
     expect(page).to have_content("Signed out successfully.")
-
   end
 
   include PlatformrTestHelpers

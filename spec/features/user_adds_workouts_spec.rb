@@ -12,6 +12,7 @@ feature 'user adds workouts', %Q{
   # * I must specify at least one exercise
   # * I must specify how many sets and reps of the exercise
   # * I can specify the weight at which each set of the exercise is to be performed (not required)
+  # * I can see a list of all my workouts
 
   let(:user) { FactoryGirl.create(:user) }
   let(:exercise) { FactoryGirl.create(:exercise, user_id: user.id) }
@@ -42,7 +43,7 @@ feature 'user adds workouts', %Q{
     expect(Workout.count).to eql(prev_count)
   end
 
-  scenario 'user' do
+  scenario 'user can see a list of workouts' do
     sign_in_as(user)
     create_a_workout(exercise)
     visit workouts_path

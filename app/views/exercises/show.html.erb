@@ -1,0 +1,3 @@
+<h3><%= @exercise.name %></h3>
+
+<%= line_chart @exercise.exercise_sets.group('superset_id').sum(:reps) %>

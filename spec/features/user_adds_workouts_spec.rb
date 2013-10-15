@@ -19,7 +19,6 @@ feature 'user adds workouts', %Q{
   scenario 'specifies valid information' do
     sign_in_as(user)
     exercise
-
     prev_count = Workout.count
     visit new_workout_path
     select '2013', from: 'workout[workout_date(1i)]'
@@ -36,7 +35,6 @@ feature 'user adds workouts', %Q{
 
   scenario 'no information entered' do
     sign_in_as(user)
-
     prev_count = Workout.count
     visit new_workout_path
     click_button 'Create Workout'
@@ -44,6 +42,12 @@ feature 'user adds workouts', %Q{
     expect(Workout.count).to eql(prev_count)
   end
 
+  scenario 'user' do
+    sign_in_as(user)
+    create_a_workout(exercise)
+    visit workouts_path
+    expect(page).to have_content(Workout.last.workout_date)
+  end
 
 
   include PlatformrTestHelpers

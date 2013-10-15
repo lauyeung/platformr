@@ -10,6 +10,7 @@ feature 'user adds exercises', %Q{
   # ACCEPTANCE CRITERIA
   # * I must specify the name of the exercise
   # * I must specify a unique exercise
+  # * I can see a list of all my exercises
 
   let(:user) { FactoryGirl.create(:user) }
 

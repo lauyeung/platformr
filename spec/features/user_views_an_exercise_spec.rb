@@ -6,7 +6,16 @@ feature 'user views an exercise', %Q{
   So that I can see details about that exercise
 } do
 
-  scenario do
+  let(:user) { FactoryGirl.create(:user) }
+  let(:exercise) { FactoryGirl.create(:exercise, user_id: user.id) }
+
+  scenario 'user views an exercise' do
+    sign_in_as(user)
+    create_a_workout(exercise)
+    visit exercise_path(exercise)
+    expect(page).to have_content(exercise.name)
   end
+
+  include PlatformrTestHelpers
 
 end

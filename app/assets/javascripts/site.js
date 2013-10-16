@@ -15,25 +15,11 @@ $(function() {
     add_fields(link, association, fields);
   });
 
-  // $('.add-fields').click(function(e) {
-  //   e.preventDefault();
-  //   link = this;
-  //   association = $(this).data('association');
-  //   fields = $(this).data('fields');
-  //   add_fields(link, association, fields);
-  // });
-
   $('#new_workout').on('click', '.remove-fields', function(e) {
     e.preventDefault();
     link = this;
     remove_fields(link);
   });
-
-  // $('.remove-fields').on('click', function(e) {
-  //   e.preventDefault();
-  //   link = this;
-  //   remove_fields(link);
-  // });
 });
 
 function remove_fields(link) {

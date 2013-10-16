@@ -6,6 +6,20 @@ $(function() {
   $('.dropdown input, .dropdown label').click(function(e) {
     e.stopPropagation();
   });
+
+  $('#new_workout').on('click', '.add-fields', function(e) {
+    e.preventDefault();
+    link = this;
+    association = $(this).data('association');
+    fields = $(this).data('fields');
+    add_fields(link, association, fields);
+  });
+
+  $('#new_workout').on('click', '.remove-fields', function(e) {
+    e.preventDefault();
+    link = this;
+    remove_fields(link);
+  });
 });
 
 function remove_fields(link) {
@@ -18,5 +32,3 @@ function add_fields(link, association, content) {
   var regexp = new RegExp("new_" + association, "g");
   $(link).parent().before(content.replace(regexp, new_id));
 }
-
-$('.add-fields').on('click', function() { console.log('HELLO LOUISE') });

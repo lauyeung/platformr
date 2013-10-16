@@ -4,7 +4,5 @@ Platformr is an application that allows weightlifters to track their workouts.
 
 * Ruby 2.0.0p247
 * Rails 4.0.0
-* PostgreSQL (`rake db:migrate` to set up the database, run `rake db:test:prepare` to set up the test database)
-* Run tests using `rake spec` or `rspec [TEST FILE TO RUN]`
-
-Inline `code` has `back-ticks around` it.
+* PostgreSQL (<tt>rake db:migrate</tt> to set up the database, run <tt>rake db:test:prepare</tt> to set up the test database)
+* Run tests using <tt>rake spec</tt> or <tt>rspec [TEST TO RUN]</tt>

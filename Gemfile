@@ -36,6 +36,10 @@ group :development, :test do
   gem 'database_cleaner'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 

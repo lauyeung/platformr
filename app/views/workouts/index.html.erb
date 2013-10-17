@@ -7,15 +7,13 @@
       <th>Workout Date</th>
       <th></th>
       <th></th>
-      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @workouts.each do |workout| %>
       <tr class="workout_<%= workout.id %>">
-        <td><%= workout.workout_date %></td>
-        <td><%= link_to 'View', workout %></td>
+        <td><%= link_to workout.workout_date, workout %></td>
         <td><%= link_to 'Edit', edit_workout_path(workout) %></td>
         <td><%= link_to 'Delete', workout, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

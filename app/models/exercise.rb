@@ -16,4 +16,10 @@ class Exercise < ActiveRecord::Base
     self.exercise_sets.empty?
   end
 
+  def self.exercise_set_count(user)
+    joins('JOIN exercise_sets ON exercises.id = exercise_sets.exercise_id')
+      .where('exercises.user_id = ?', user.id)
+      .select('exercises.name')
+  end
+
 end

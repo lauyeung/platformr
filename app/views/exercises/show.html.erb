@@ -1,3 +1,4 @@
 <h3><%= @exercise.name %></h3>
 
-<%= line_chart @exercise.exercise_sets.group('superset_id').sum(:reps) %>
+<% workout_dates = Workout.max_weight_by_date(@exercise).map {|point| [point['workout_date'], point['max'].to_i] } %>
+<%= line_chart(workout_dates) %>

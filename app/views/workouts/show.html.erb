@@ -28,7 +28,7 @@
   <th>
   <th>Combination</th>
   <th>Sets</th>
-  <th>Sets Completed</th>
+  <th>Sets Complete</th>
 <%- @workout.combinations.each_with_index do |combination, index| -%>
 <tr>
   <td><%= index + 1 %></td>
@@ -47,7 +47,20 @@
   </div>
   </td>
 <td><%= combination.sets %></td>
-<td><%= combination.sets_complete %></td>
+<td>
+  <% if combination.sets != combination.sets_complete %>
+    <%= simple_form_for combination do |f| %>
+      <%= f.input :sets_complete, as: :hidden, input_html: {value: (combination.sets_complete + 1)} %>
+      <button type="submit" class="btn btn-success">
+        <%= combination.sets_complete %>
+      </button>
+    <%- end -%>
+  <%- else -%>
+      <button type="submit" class="btn btn-success disabled">
+        <%= combination.sets_complete %>
+      </button>
+  <%- end -%>
+</td>
 <%- end -%>
 </tr>
 </table>

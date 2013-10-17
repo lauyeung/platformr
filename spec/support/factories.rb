@@ -29,12 +29,12 @@ FactoryGirl.define do
   factory :combination do
     sets 5
     sets_complete 0
-    workout
+    association :workout, :with_exercise_sets
   end
 
   factory :superset do
     weight 50
-    combination
+    workout_with_blank_combination
   end
 
   factory :exercise_set do

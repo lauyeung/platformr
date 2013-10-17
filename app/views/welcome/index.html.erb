@@ -1,13 +1,17 @@
+<div class="row">
+  <div class="span12 text-center">
+    <% if user_signed_in? %>
+      <h1>Exercise Breakdown</h1>
+      <% hello = Exercise.exercise_set_count(current_user) %>
 
-<% if user_signed_in? %>
-  <%= "Number of workouts: #{current_user.workouts.count}" %><br>
-  <%= "Number of exercises: #{current_user.exercises.count}" %>
+      <%= pie_chart hello.group('name').count %>
 
-  <%= pie_chart current_user.exercises.group('name').count %>
-  <%= line_chart current_user.workouts.group_by_day(:workout_date).count %>
-<% else %>
-  <h1 class='brand'>PLATFORMR</h1>
-  <p>The world's #1 app for tracking your progs.</p>
-  <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-success' %>
-  <%= link_to "Sign in", new_user_session_path, class: 'btn btn-success' %>
-<% end %>
+    <% else %>
+      <h1 class='brand'>PLATFORMR</h1>
+      <p>The world's #1 app for tracking your progs.</p>
+      <%= link_to "Sign up", new_user_registration_path, class: 'btn btn-info' %>
+      or
+      <%= link_to "Sign in", new_user_session_path, class: 'btn btn-success' %>
+    <% end %>
+  </div>
+</div>

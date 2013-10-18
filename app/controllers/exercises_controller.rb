@@ -3,14 +3,11 @@ class ExercisesController < ApplicationController
 
   def index
     @exercises = current_user.exercises.order('name')
+    @exercise = Exercise.new
   end
 
   def show
     @exercise = Exercise.find(params[:id])
-  end
-
-  def new
-    @exercise = Exercise.new
   end
 
   def create
@@ -19,7 +16,8 @@ class ExercisesController < ApplicationController
       flash[:notice] = "Exercise was successfully added!"
       redirect_to exercises_path
     else
-      render :new
+      @exercises = current_user.exercises.order('name')
+      render :index
     end
   end
 

@@ -6,6 +6,9 @@ feature 'user views a workout', %Q{
   So that I can see the details of that workout
 } do
 
+  # ACCEPTANCE CRITERIA
+  # * User sees the workouts they have created
+
   let(:user) { FactoryGirl.create(:user) }
   let(:exercise) { FactoryGirl.create(:exercise, user_id: user.id) }
 

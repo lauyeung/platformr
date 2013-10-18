@@ -25,7 +25,7 @@ feature 'user requests password', %Q{
     #expect email details pertaining to the confirmation
     expect(ActionMailer::Base.deliveries.size).to eql(1)
     last_email = ActionMailer::Base.deliveries.last
-    expect(last_email).to have_subject('Platformr Password Reset')
+    expect(last_email).to have_subject('Platformr password reset instructions')
     expect(last_email).to deliver_to(existing_user.email)
   end
 

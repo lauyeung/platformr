@@ -17,7 +17,7 @@ feature 'user signs up', %Q{
   scenario 'user does not specify valid information' do
     prev_count = User.count
     visit '/'
-    within(".nav") do
+    within(".navbar-right") do
       click_link 'Sign up'
     end
     click_button 'Sign up'
@@ -30,7 +30,7 @@ feature 'user signs up', %Q{
     user = FactoryGirl.create(:user)
     prev_count = User.count
     visit '/'
-    within(".nav") do
+    within(".navbar-right") do
       click_link 'Sign up'
     end
     within(".form-inputs") do

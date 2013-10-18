@@ -12,7 +12,7 @@ feature 'user increments sets complete', %Q{
   let(:user) { FactoryGirl.create(:user) }
   let(:exercise) { FactoryGirl.create(:exercise, user_id: user.id) }
 
-  scenario 'user edits a workout' do
+  scenario 'user increments sets complete by one' do
     sign_in_as(user)
     create_a_workout(exercise)
     workout = Workout.last
@@ -22,7 +22,7 @@ feature 'user increments sets complete', %Q{
     expect(workout.combinations.last.sets_complete).to eql(prev_sets_complete + 1)
   end
 
-  scenario 'user edits a workout' do
+  scenario 'user cannot increment sets complete once sets equals sets complete' do
     sign_in_as(user)
     create_a_workout(exercise)
     workout = Workout.last
@@ -30,7 +30,7 @@ feature 'user increments sets complete', %Q{
     combination.sets_complete = combination.sets
     combination.save
     visit workout_path(workout)
-    click_button combination.sets_complete
+    find_button(combination.sets_complete).has_css?('.disabled')
     expect(combination.sets_complete).to eql(combination.sets)
   end
 

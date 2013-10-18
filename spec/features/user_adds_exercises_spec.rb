@@ -17,7 +17,7 @@ feature 'user adds exercises', %Q{
   scenario 'specifies valid information' do
     sign_in_as(user)
     prev_count = Exercise.count
-    visit new_exercise_path
+    visit exercises_path
     fill_in 'Exercise name', with: 'Clean'
     click_button 'Create Exercise'
     expect(page).to have_content("Exercise was successfully added!")
@@ -28,9 +28,6 @@ feature 'user adds exercises', %Q{
     sign_in_as(user)
     prev_count = Exercise.count
     visit exercises_path
-    within("#wrap") do
-      click_link 'Add New Exercise'
-    end
     click_button 'Create Exercise'
     expect(page).to have_content("can't be blank")
     expect(Exercise.count).to eql(prev_count)
@@ -42,9 +39,6 @@ feature 'user adds exercises', %Q{
     FactoryGirl.create(:exercise, name: exercise)
     prev_count = Exercise.count
     visit exercises_path
-    within("#wrap") do
-      click_link 'Add New Exercise'
-    end
     fill_in 'Exercise name', with: exercise
     click_button 'Create Exercise'
     expect(page).to have_content("already exists")
@@ -54,7 +48,7 @@ feature 'user adds exercises', %Q{
   scenario 'user sees a list of all exercises' do
     exercise = 'Clean'
     sign_in_as(user)
-    visit new_exercise_path
+    visit exercises_path
     fill_in 'Exercise name', with: exercise
     click_button 'Create Exercise'
     visit exercises_path

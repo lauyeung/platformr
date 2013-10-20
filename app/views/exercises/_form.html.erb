@@ -1,4 +1,8 @@
 <%= simple_form_for @exercise do |f| %>
-  <%= f.input :name, label: 'Exercise name' %>
+<div class="form-inputs container">
+  <div class="row form-row-margin">
+    <%= f.input :name, label: 'Exercise name', label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+  </div>
+</div>
   <%= f.button :submit, class: 'btn btn-success' %>
 <% end %>

@@ -3,19 +3,33 @@
 <%= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
-    <%= f.input :first_name, :autofocus => true %>
-    <%= f.input :last_name, :autofocus => true %>
+  <div class="form-inputs container">
+    <div class="row form-row-margin">
+      <%= f.input :email, :required => true, :autofocus => true, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
+    <div class="row form-row-margin">
+      <%= f.input :first_name, :autofocus => true, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
+    <div class="row form-row-margin">
+      <%= f.input :last_name, :autofocus => true, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
 <!--     <%= f.input :account_privacy, collection: User::PRIVACY, :autofocus => true, :include_blank => false %> -->
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false %>
-    <%= f.input :password_confirmation, :required => false %>
-    <%= f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true %>
+
+    <div class="row form-row-margin">
+      <%= f.input :password, :autocomplete => "off", :hint => "leave blank if not changing your password", :required => false, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
+
+    <div class="row form-row-margin">
+      <%= f.input :password_confirmation, :required => false, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
+    <div class="row form-row-margin">
+      <%= f.input :current_password, :hint => "please enter current password to confirm changes", :required => true, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
   </div>
 
   <div class="form-actions">

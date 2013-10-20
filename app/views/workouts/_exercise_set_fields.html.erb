@@ -1,7 +1,7 @@
 <div class='fields'>
   <div class="form-group form-inline">
-    <%= f.association :exercise, collection: current_user.exercises.order('name') %>
-    <%= f.input :reps %><br>
+    <%= f.association :exercise, collection: current_user.exercises.order('name'), label_html: { class: "form-label-margin" } %>
+    <%= f.input :reps, label_html: { class: "form-label-margin" } %><br>
     <%= exercise_removal_link(f) %>
   </div>
 </div>

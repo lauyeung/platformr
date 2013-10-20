@@ -15,8 +15,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username
   validates_presence_of :email
-  validates_presence_of :password
-  validates_presence_of :password_confirmation
+  validates_presence_of :password, on: :create
+  validates_presence_of :password_confirmation, on: :create
   validates_presence_of :account_privacy
 
   validates_inclusion_of :account_privacy, in: PRIVACY
@@ -35,6 +35,14 @@ class User < ActiveRecord::Base
       else
         where(conditions).first
       end
+  end
+
+  def greeting
+    if first_name.present?
+      first_name
+    else
+      username
+    end
   end
 
   def username_requirements

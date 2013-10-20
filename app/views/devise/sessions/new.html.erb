@@ -1,17 +1,23 @@
 <h2>Sign in</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-vertical' }) do |f| %>
-  <%= f.input :login, :required => false, :autofocus => true %>
-  <%= f.input :password, :required => false %>
+<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-  <div class="checkbox">
-    <label>
-      <span class="icons"><span class="first-icon fui-checkbox-unchecked"></span><span class="second-icon fui-checkbox-checked"></span></span>
-      <input class="boolean optional" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1"> Remember me
-    </label>
- </div>
-
-  <!-- <%= f.input :remember_me, :as => :boolean if devise_mapping.rememberable? %> -->
+  <div class="form-inputs container">
+    <div class="row form-row-margin">
+      <%= f.input :login, :required => false, :autofocus => true, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
+    <div class="row form-row-margin">
+      <%= f.input :password, :required => false, label_html: { class: "col-md-2" }, input_html: { class: "col-md-2" } %>
+    </div>
+    <div class="row form-row-margin">
+      <div class="checkbox">
+        <label>
+          <span class="icons"><span class="first-icon fui-checkbox-unchecked"></span><span class="second-icon fui-checkbox-checked"></span></span>
+          <input class="boolean optional" id="user_remember_me" name="user[remember_me]" type="checkbox" value="1"> Remember me
+        </label>
+      </div>
+    </div>
+  </div>
 
   <%= f.button :submit, "Sign in" %>
 <% end %>

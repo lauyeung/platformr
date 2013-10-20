@@ -3,8 +3,10 @@
 <%= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, :required => true, :autofocus => true %>
+  <div class="form-inputs container">
+    <div class="row form-row-margin">
+      <%= f.input :email, :required => true, :autofocus => true, label_html: { class: "col-md-1" }, input_html: { class: "col-md-2" } %>
+    </div>
   </div>
 
   <div class="form-actions">

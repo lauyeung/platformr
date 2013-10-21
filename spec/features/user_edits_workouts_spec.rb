@@ -12,17 +12,32 @@ feature 'user edits workouts', %Q{
   let(:user) { FactoryGirl.create(:user) }
   let(:exercise) { FactoryGirl.create(:exercise, user_id: user.id) }
 
-  scenario 'user edits a workout' do
+  scenario 'user changes the number of sets' do
     sign_in_as(user)
     create_a_workout(exercise)
+    visit workout_path(Workout.last)
     prev_count = Workout.count
-    visit workouts_path
+    click_link 'Manage Workouts'
     click_link 'Edit'
     fill_in 'Sets', with: '6', :match => :prefer_exact
     click_button 'Update Workout'
     expect(page).to have_content('Workout was successfully updated!')
     expect(Workout.count).to eql(prev_count)
   end
+
+  # scenario 'user adds more information' do
+  #   sign_in_as(user)
+  #   create_a_workout(exercise)
+  #   prev_count = Workout.count
+  #   visit workouts_path
+  #   click_link 'Edit'
+  #   click_link 'Add an Exercise'
+  #   select exercise.name, from: 'Exercise'
+  #   fill_in 'Reps', with: '2'
+  #   click_button 'Update Workout'
+  #   expect(page).to have_content('Workout was successfully updated!')
+  #   expect(Workout.count).to eql(prev_count)
+  # end
 
   include PlatformrTestHelpers
 

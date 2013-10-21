@@ -36,7 +36,7 @@ feature 'user adds exercises', %Q{
   scenario 'try to enter the same exercise again' do
     exercise = 'Clean'
     sign_in_as(user)
-    FactoryGirl.create(:exercise, name: exercise)
+    FactoryGirl.create(:exercise, name: exercise, user_id: user.id)
     prev_count = Exercise.count
     visit exercises_path
     fill_in 'Exercise name', with: exercise

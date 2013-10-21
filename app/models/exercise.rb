@@ -8,7 +8,7 @@ class Exercise < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :user
 
-  validates_uniqueness_of :name, :case_sensitive => false, :message => "already exists"
+  validates_uniqueness_of :name, :scope => [:user], :case_sensitive => false, :message => "already exists"
 
   before_destroy :check_exercise_not_in_use
 

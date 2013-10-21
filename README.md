@@ -10,6 +10,10 @@ Technical Requirements
 * PostgreSQL (<tt>rake db:migrate</tt> to set up the database, run <tt>rake db:test:prepare</tt> to set up the test database)
 * Run tests using <tt>rake spec</tt> or <tt>rspec [TEST TO RUN]</tt>
 
+ER Diagram
+-------------------
+![er-diagram](https://lh5.googleusercontent.com/-w9Z5yiWA-Hw/UmV_yBhOxiI/AAAAAAAANVo/rpLQd2xQAwM/w705-h552-no/platformr_er_diagram.png)
+
 Logged-in Index
 -------------------
 ![logged-in](https://lh6.googleusercontent.com/-8r3k2ARsgq8/UmWxh3FOtHI/AAAAAAAANYE/9PQAHj_38ak/w744-h403-no/platformr_main.png)
@@ -21,10 +25,6 @@ Add an Exercise / Manage Exercises
 Add a Workout / Manage Workouts
 -------------------
 ![add-workout](https://lh5.googleusercontent.com/-rR5agqZ2GYM/UmWxdeJ786I/AAAAAAAANX0/PK39JUGEO4Y/w744-h405-no/platformr_add_workout.png)
-
-ER Diagram
--------------------
-![er-diagram](https://lh5.googleusercontent.com/-w9Z5yiWA-Hw/UmV_yBhOxiI/AAAAAAAANVo/rpLQd2xQAwM/w705-h552-no/platformr_er_diagram.png)
 
 Next steps
 -------------------

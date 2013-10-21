@@ -14,7 +14,8 @@ ER Diagram
 -------------------
 ![screenshot](https://lh5.googleusercontent.com/-w9Z5yiWA-Hw/UmV_yBhOxiI/AAAAAAAANVo/rpLQd2xQAwM/w705-h552-no/platformr_er_diagram.png)
 
-Next steps:
-+ Add additional functionality to edit workout
-+ Implement comments
-+ Create social component
+Next steps
+-------------------
+* Add additional functionality to edit workout
+* Implement comments
+* Create social component

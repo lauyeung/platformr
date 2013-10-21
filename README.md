@@ -14,11 +14,11 @@ Logged-in Index
 -------------------
 ![logged-in](https://lh6.googleusercontent.com/-8r3k2ARsgq8/UmWxh3FOtHI/AAAAAAAANYE/9PQAHj_38ak/w744-h403-no/platformr_main.png)
 
-Add an Exercise
+Add an Exercise / Manage Exercises
 -------------------
 ![add-exercise](https://lh6.googleusercontent.com/-boEulqMAP54/UmWxgHMweZI/AAAAAAAANX8/60JpoOz2kuI/w744-h417-no/platformr_exercises.png)
 
-Add a Workout
+Add a Workout / Manage Workouts
 -------------------
 ![add-workout](https://lh5.googleusercontent.com/-rR5agqZ2GYM/UmWxdeJ786I/AAAAAAAANX0/PK39JUGEO4Y/w744-h405-no/platformr_add_workout.png)
 

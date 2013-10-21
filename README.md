@@ -1,7 +1,7 @@
 Platformr README
 ===================
 
-Platformr is an application that allows weightlifters to track their workouts (live at platformr.co[http://www.platformr.co]).
+Platformr is an application that allows weightlifters to track their workouts (live at (platformr.co)[http://www.platformr.co]).
 
 Technical Requirements
 -------------------

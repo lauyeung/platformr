@@ -25,20 +25,6 @@ feature 'user edits workouts', %Q{
     expect(Workout.count).to eql(prev_count)
   end
 
-  # scenario 'user adds more information' do
-  #   sign_in_as(user)
-  #   create_a_workout(exercise)
-  #   prev_count = Workout.count
-  #   visit workouts_path
-  #   click_link 'Edit'
-  #   click_link 'Add an Exercise'
-  #   select exercise.name, from: 'Exercise'
-  #   fill_in 'Reps', with: '2'
-  #   click_button 'Update Workout'
-  #   expect(page).to have_content('Workout was successfully updated!')
-  #   expect(Workout.count).to eql(prev_count)
-  # end
-
   include PlatformrTestHelpers
 
 end

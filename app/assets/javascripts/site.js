@@ -15,7 +15,21 @@ $(function() {
     add_fields(link, association, fields);
   });
 
+  $('.edit_workout').on('click', '.add-fields', function(e) {
+    e.preventDefault();
+    link = this;
+    association = $(this).data('association');
+    fields = $(this).data('fields');
+    add_fields(link, association, fields);
+  });
+
   $('#new_workout').on('click', '.remove-fields', function(e) {
+    e.preventDefault();
+    link = this;
+    remove_fields(link);
+  });
+
+  $('.edit_workout').on('click', '.remove-fields', function(e) {
     e.preventDefault();
     link = this;
     remove_fields(link);

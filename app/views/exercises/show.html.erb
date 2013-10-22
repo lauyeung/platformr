@@ -2,6 +2,3 @@
 
 <% workout_dates = Workout.max_weight_by_date(@exercise).map {|point| [point['workout_date'], point['max'].to_i] } %>
 <%= line_chart(workout_dates) %>
-
-
-<%= line_chart({20.day.ago => 5, Date.today => 4, "2013-05-30 00:00:00 EST" => 7, "2013-05-07 00:00:00 UTC" => 7}) %>

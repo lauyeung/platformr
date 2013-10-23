@@ -28,6 +28,8 @@ Add a Workout / Manage Workouts
 
 Next steps
 -------------------
-* Add additional functionality to edit workout
+* Additional functionality to edit workout
 * Implement comments
-* Create social component
+* Search functionality for exercises (and workouts?)
+* Workout templates that can be reused
+* Create social component (sharing workouts, messaging, etc.)

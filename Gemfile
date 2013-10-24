@@ -36,6 +36,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'email_spec'
   gem 'rake'
+  gem 'coveralls', require: false
 end
 
 group :production do

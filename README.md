@@ -1,8 +1,8 @@
 Platformr README
 ===================
 
-![Build Status](http://allthebadges.io/lauyeung/platformr/travis.png)](http://allthebadges.io/lauyeung/platformr/travis)
-![Code Climate](http://allthebadges.io/lauyeung/platformr/code_climate.png)](http://allthebadges.io/lauyeung/platformr/code_climate)
+[![Build Status](http://allthebadges.io/lauyeung/platformr/travis.png)](http://allthebadges.io/lauyeung/platformr/travis)
+[![Code Climate](http://allthebadges.io/lauyeung/platformr/code_climate.png)](http://allthebadges.io/lauyeung/platformr/code_climate)
 
 Platformr is an application that allows weightlifters to track their workouts (live at [platformr.co](http://platformr.co)).
 

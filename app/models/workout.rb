@@ -19,6 +19,10 @@ class Workout < ActiveRecord::Base
 
   validates_presence_of :combinations
 
+  def utc_workout_date
+    workout_date = workout_date.to_time.utc
+  end
+
   def self.max_weight_by_date(exercise)
     joins('JOIN combinations ON workouts.id = combinations.workout_id ' +
       'JOIN supersets ON supersets.combination_id = combinations.id ' +

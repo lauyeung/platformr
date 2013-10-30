@@ -1,4 +1,4 @@
 <h3><%= @exercise.name %></h3>
 
-<% workout_dates = Workout.max_weight_by_date(@exercise).map {|point| [point['workout_date'].to_time.utc + 12.hours, point['max'].to_i] } %>
+<% workout_dates = Workout.max_weight_by_date(@exercise).map {|point| [point['workout_date'].to_time.strftime("%c").to_datetime, point['max'].to_i] } %>
 <%= line_chart(workout_dates) %>

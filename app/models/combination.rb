@@ -21,4 +21,6 @@ class Combination < ActiveRecord::Base
   validates_numericality_of :sets_complete, less_than_or_equal_to: :sets,
     if: Proc.new { |combination| combination.sets.present? }
 
+  validates_inclusion_of :sets, :in => 1..1000
+
 end

@@ -14,7 +14,7 @@ class Superset < ActiveRecord::Base
   validates_presence_of :combination
 
   validates_numericality_of :weight, if: "!weight.nil?"
-  validates_inclusion_of :weight, :in => 1..10000, if: "!weight.nil?"
+  validates_inclusion_of :weight, :in => 1..10000, :message => "is not valid", if: "!weight.nil?"
 
 
 end

@@ -16,8 +16,15 @@ FactoryGirl.define do
  end
 
   factory :workout do
+    ignore do
+      number_of_combinations 1
+    end
     workout_date Time.now
     user
+
+    after(:build) do |workout, evaluator|
+      workout.combinations = build_list(:combination, evaluator.number_of_combinations, workout: workout)
+    end
 
     factory :workout_with_blank_combination do
       after(:create) do |workout|
@@ -29,7 +36,6 @@ FactoryGirl.define do
   factory :combination do
     sets 5
     sets_complete 0
-    association :workout, :with_exercise_sets
   end
 
   factory :superset do

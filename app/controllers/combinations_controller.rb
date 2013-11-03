@@ -2,11 +2,8 @@ class CombinationsController < ApplicationController
 
   def update
     @combination = Combination.find(params[:id])
-    if @combination.update(combination_params)
-      redirect_to workout_path(@combination.workout)
-    else
-      redirect_to workout_path(@combination.workout)
-    end
+    @combination.update(combination_params)
+    redirect_to workout_path(@combination.workout)
   end
 
   private

@@ -25,6 +25,19 @@ feature 'user edits workouts', %Q{
     expect(Workout.count).to eql(prev_count)
   end
 
+  scenario 'user enters incorrect information for a workout' do
+    sign_in_as(user)
+    create_a_workout(exercise)
+    visit workout_path(Workout.last)
+    prev_count = Workout.count
+    click_link 'Manage Workouts'
+    click_link 'Edit'
+    fill_in 'Sets', with: '0', :match => :prefer_exact
+    click_button 'Update Workout'
+    expect(page).to have_content('is not valid')
+    expect(Workout.count).to eql(prev_count)
+  end
+
   include PlatformrTestHelpers
 
 end

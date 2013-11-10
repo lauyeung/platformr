@@ -37,3 +37,4 @@ Next steps
 * Search functionality for exercises (and workouts?)
 * Workout templates that can be reused
 * Create social component (sharing workouts, messaging, etc.)
+* Find a way to figure max weight of a particular exercise

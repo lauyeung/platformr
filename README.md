@@ -32,9 +32,9 @@ Add a Workout / Manage Workouts
 
 Next steps
 -------------------
-* Additional functionality to edit workout
 * Implement comments
 * Search functionality for exercises (and workouts?)
+* Additional functionality to edit workout (insert and reorder elements)
 * Workout templates that can be reused
 * Create social component (sharing workouts, messaging, etc.)
 * Find a way to figure max weight of a particular exercise
